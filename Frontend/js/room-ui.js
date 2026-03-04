@@ -22,7 +22,8 @@ sidebarOverlay.addEventListener('click', toggleSidebar);
 
 // Tab Switching Logic
 const tabButtons = document.querySelectorAll('.tab-button');
-const chatDisplayArea = document.querySelector('.chat-display-area');
+const publicLobbyView = document.querySelector('.public-lobby-view');
+const privateChannelsView = document.querySelector('.private-channels-view');
 
 tabButtons.forEach(button => {
     button.addEventListener('click', function() {
@@ -36,27 +37,55 @@ tabButtons.forEach(button => {
         const channelType = this.getAttribute('data-channel');
         console.log(`Switched to ${channelType} channel`);
         
-        // Clear chat area (will be replaced with actual channel switching logic)
-        // chatDisplayArea.innerHTML = '';
+        // Toggle between views
+        if (channelType === 'public') {
+            publicLobbyView.classList.add('active-view');
+            privateChannelsView.classList.remove('active-view');
+        } else if (channelType === 'private') {
+            publicLobbyView.classList.remove('active-view');
+            privateChannelsView.classList.add('active-view');
+        }
+    });
+});
+
+// Contact Item Selection (Private Channels)
+const contactItems = document.querySelectorAll('.contact-item');
+
+contactItems.forEach(contact => {
+    contact.addEventListener('click', function() {
+        // Remove active class from all contacts
+        contactItems.forEach(item => item.classList.remove('active'));
+        
+        // Add active class to clicked contact
+        this.classList.add('active');
+        
+        const contactName = this.querySelector('.contact-name').textContent;
+        console.log(`Selected conversation with: ${contactName}`);
+        
+        // Load conversation (will be implemented later)
     });
 });
 
 // Send button click handler
-const sendButton = document.querySelector('.send-button');
-const messageInput = document.querySelector('.message-input');
+const sendButtons = document.querySelectorAll('.send-button');
+const messageInputs = document.querySelectorAll('.message-input');
 
-sendButton.addEventListener('click', function() {
-    const message = messageInput.value.trim();
-    if (message) {
-        console.log('Sending message:', message);
-        // Message sending logic will be added later
-        messageInput.value = '';
-    }
-});
+sendButtons.forEach((sendButton, index) => {
+    const messageInput = messageInputs[index];
+    
+    sendButton.addEventListener('click', function() {
+        const message = messageInput.value.trim();
+        if (message) {
+            console.log('Sending message:', message);
+            // Message sending logic will be added later
+            messageInput.value = '';
+        }
+    });
 
-// Send message on Enter key
-messageInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        sendButton.click();
-    }
+    // Send message on Enter key
+    messageInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
+    });
 });

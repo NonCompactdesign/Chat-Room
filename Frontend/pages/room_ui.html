@@ -56,20 +56,67 @@
                 <button class="tab-button" data-channel="private">Private Channels</button>
             </nav>
 
-            <!-- Chat Display Area -->
-            <section class="chat-display-area">
-                <!-- Messages will be displayed here -->
-            </section>
+            <!-- Public Lobby View -->
+            <div class="public-lobby-view active-view">
+                <!-- Chat Display Area -->
+                <section class="chat-display-area">
+                    <!-- Public messages will be displayed here -->
+                </section>
 
-            <!-- Message Input Area -->
-            <section class="message-input-area">
-                <input 
-                    type="text" 
-                    class="message-input" 
-                    placeholder="Type Message here"
-                >
-                <button class="send-button">Send</button>
-            </section>
+                <!-- Message Input Area -->
+                <section class="message-input-area">
+                    <input 
+                        type="text" 
+                        class="message-input" 
+                        placeholder="Type Message here"
+                    >
+                    <button class="send-button">Send</button>
+                </section>
+            </div>
+
+            <!-- Private Channels View -->
+            <div class="private-channels-view">
+                <div class="private-channels-container">
+                    <!-- Contacts List -->
+                    <aside class="contacts-list">
+                        <div class="contacts-header">
+                            <h3>Conversations</h3>
+                        </div>
+                        <div class="contacts-content">
+                            <!-- Contact items will be added here -->
+                            <div class="contact-item active">
+                                <div class="contact-name">Person 1</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-name">Person 2</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-name">Person 3</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Private Chat Area -->
+                    <div class="private-chat-area">
+                        <section class="chat-display-area">
+                            <!-- Private messages will be displayed here -->
+                        </section>
+
+                        <!-- Message Input Area -->
+                        <section class="message-input-area">
+                            <input 
+                                type="text" 
+                                class="message-input" 
+                                placeholder="Type Message here"
+                            >
+                            <button class="send-button">Send</button>
+                        </section>
+                    </div>
+                </div>
+            </div>
         </main>
 
     </div>
