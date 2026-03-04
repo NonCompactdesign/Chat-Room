@@ -15,16 +15,36 @@
         
         <!-- Left Sidebar -->
         <aside class="left-sidebar">
-            <!-- Member List Section -->
-            <section class="member-list-section">
+            <!-- Member List Section (Public Lobby) -->
+            <section class="member-list-section sidebar-public-section">
                 <h3 class="section-header">Member List</h3>
                 <div class="member-list-content">
                     <!-- Members will be populated here -->
                 </div>
             </section>
 
-            <!-- Room Info Section -->
-            <section class="room-info-section">
+            <!-- Private Contacts Section (Private Channels - Mobile Only) -->
+            <section class="private-contacts-sidebar sidebar-private-section">
+                <h3 class="section-header">Conversations</h3>
+                <div class="private-contacts-content">
+                    <!-- Contact items for mobile -->
+                    <div class="contact-item-sidebar active">
+                        <div class="contact-name">Person 1</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                    <div class="contact-item-sidebar">
+                        <div class="contact-name">Person 2</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                    <div class="contact-item-sidebar">
+                        <div class="contact-name">Person 3</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Room Info Section (Public Lobby) -->
+            <section class="room-info-section sidebar-public-section">
                 <h3 class="section-header">Room Info</h3>
                 <div class="room-info-content">
                     <div class="info-item">

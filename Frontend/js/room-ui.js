@@ -41,28 +41,68 @@ tabButtons.forEach(button => {
         if (channelType === 'public') {
             publicLobbyView.classList.add('active-view');
             privateChannelsView.classList.remove('active-view');
+            document.body.classList.remove('private-view-active');
         } else if (channelType === 'private') {
             publicLobbyView.classList.remove('active-view');
             privateChannelsView.classList.add('active-view');
+            document.body.classList.add('private-view-active');
         }
     });
 });
 
 // Contact Item Selection (Private Channels)
 const contactItems = document.querySelectorAll('.contact-item');
+const contactItemsSidebar = document.querySelectorAll('.contact-item-sidebar');
 
-contactItems.forEach(contact => {
+// Function to handle contact selection
+function selectContact(contactName, sidebarItems, mainItems) {
+    console.log(`Selected conversation with: ${contactName}`);
+    
+    // Close sidebar on mobile when contact is selected
+    if (window.innerWidth <= 768) {
+        toggleSidebar();
+    }
+    
+    // Load conversation (will be implemented later)
+}
+
+// Main contacts list (desktop private channels view)
+contactItems.forEach((contact, index) => {
     contact.addEventListener('click', function() {
         // Remove active class from all contacts
         contactItems.forEach(item => item.classList.remove('active'));
+        contactItemsSidebar.forEach(item => item.classList.remove('active'));
         
         // Add active class to clicked contact
         this.classList.add('active');
         
-        const contactName = this.querySelector('.contact-name').textContent;
-        console.log(`Selected conversation with: ${contactName}`);
+        // Sync with sidebar contact
+        if (contactItemsSidebar[index]) {
+            contactItemsSidebar[index].classList.add('active');
+        }
         
-        // Load conversation (will be implemented later)
+        const contactName = this.querySelector('.contact-name').textContent;
+        selectContact(contactName, contactItemsSidebar, contactItems);
+    });
+});
+
+// Sidebar contacts list (mobile private channels view)
+contactItemsSidebar.forEach((contact, index) => {
+    contact.addEventListener('click', function() {
+        // Remove active class from all contacts
+        contactItems.forEach(item => item.classList.remove('active'));
+        contactItemsSidebar.forEach(item => item.classList.remove('active'));
+        
+        // Add active class to clicked contact
+        this.classList.add('active');
+        
+        // Sync with main contact
+        if (contactItems[index]) {
+            contactItems[index].classList.add('active');
+        }
+        
+        const contactName = this.querySelector('.contact-name').textContent;
+        selectContact(contactName, contactItemsSidebar, contactItems);
     });
 });
 
