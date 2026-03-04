@@ -3,6 +3,23 @@
 
 console.log('Room UI loaded');
 
+// Burger Menu Toggle for Mobile
+const burgerMenu = document.getElementById('burgerMenu');
+const leftSidebar = document.querySelector('.left-sidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+function toggleSidebar() {
+    burgerMenu.classList.toggle('active');
+    leftSidebar.classList.toggle('active');
+    sidebarOverlay.classList.toggle('active');
+}
+
+// Toggle sidebar when burger menu is clicked
+burgerMenu.addEventListener('click', toggleSidebar);
+
+// Close sidebar when overlay is clicked
+sidebarOverlay.addEventListener('click', toggleSidebar);
+
 // Tab Switching Logic
 const tabButtons = document.querySelectorAll('.tab-button');
 const chatDisplayArea = document.querySelector('.chat-display-area');

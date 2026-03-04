@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="../css/room-layout.css">
 </head>
 <body>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
     <!-- Main Container -->
     <div class="room-container">
         
@@ -44,6 +47,11 @@
         <main class="main-content">
             <!-- Top Navigation Tabs -->
             <nav class="channel-tabs">
+                <button class="burger-menu" id="burgerMenu" aria-label="Toggle sidebar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <button class="tab-button active" data-channel="public">Public Lobby</button>
                 <button class="tab-button" data-channel="private">Private Channels</button>
             </nav>
