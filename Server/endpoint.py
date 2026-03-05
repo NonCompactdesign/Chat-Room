@@ -24,8 +24,15 @@ def store_room_information():
     # the information of the room will stored in the database
     # for now the information will be store here in the memory
 
-    data = request.get_json()
-
-    room_information = json.loads(data)
+    room_information = request.get_json()
 
     ROOMS[room_information["room_id"]] = room_information
+
+    print(ROOMS)
+
+    return jsonify({
+        "status": "Y"
+    })
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
