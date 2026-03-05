@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room</title>
+    <link rel="stylesheet" href="../css/room-layout.css">
+</head>
+<body>
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    
+    <!-- Main Container -->
+    <div class="room-container">
+        
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <!-- Member List Section (Public Lobby) -->
+            <section class="member-list-section sidebar-public-section">
+                <h3 class="section-header">Member List</h3>
+                <div class="member-list-content">
+                    <!-- Members will be populated here -->
+                </div>
+            </section>
+
+            <!-- Private Contacts Section (Private Channels - Mobile Only) -->
+            <section class="private-contacts-sidebar sidebar-private-section">
+                <h3 class="section-header">Conversations</h3>
+                <div class="private-contacts-content">
+                    <!-- Contact items for mobile -->
+                    <div class="contact-item-sidebar active">
+                        <div class="contact-name">Person 1</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                    <div class="contact-item-sidebar">
+                        <div class="contact-name">Person 2</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                    <div class="contact-item-sidebar">
+                        <div class="contact-name">Person 3</div>
+                        <div class="contact-last-message">Last message preview...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Room Info Section (Public Lobby) -->
+            <section class="room-info-section sidebar-public-section">
+                <h3 class="section-header">Room Info</h3>
+                <div class="room-info-content">
+                    <div class="info-item">
+                        <span class="info-label">Room ID</span>
+                        <span class="info-value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Room Host</span>
+                        <span class="info-value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Room created at</span>
+                        <span class="info-value">-</span>
+                    </div>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation Tabs -->
+            <nav class="channel-tabs">
+                <button class="burger-menu" id="burgerMenu" aria-label="Toggle sidebar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="tab-button active" data-channel="public">Public Lobby</button>
+                <button class="tab-button" data-channel="private">Private Channels</button>
+            </nav>
+
+            <!-- Public Lobby View -->
+            <div class="public-lobby-view active-view">
+                <!-- Chat Display Area -->
+                <section class="chat-display-area">
+                    <!-- Public messages will be displayed here -->
+                </section>
+
+                <!-- Message Input Area -->
+                <section class="message-input-area">
+                    <input 
+                        type="text" 
+                        class="message-input" 
+                        placeholder="Type Message here"
+                    >
+                    <button class="send-button">Send</button>
+                </section>
+            </div>
+
+            <!-- Private Channels View -->
+            <div class="private-channels-view">
+                <div class="private-channels-container">
+                    <!-- Contacts List -->
+                    <aside class="contacts-list">
+                        <div class="contacts-header">
+                            <h3>Conversations</h3>
+                        </div>
+                        <div class="contacts-content">
+                            <!-- Contact items will be added here -->
+                            <div class="contact-item active">
+                                <div class="contact-name">Person 1</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-name">Person 2</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-name">Person 3</div>
+                                <div class="contact-last-message">Last message preview...</div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Private Chat Area -->
+                    <div class="private-chat-area">
+                        <section class="chat-display-area">
+                            <!-- Private messages will be displayed here -->
+                        </section>
+
+                        <!-- Message Input Area -->
+                        <section class="message-input-area">
+                            <input 
+                                type="text" 
+                                class="message-input" 
+                                placeholder="Type Message here"
+                            >
+                            <button class="send-button">Send</button>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="../js/room-ui.js"></script>
+</body>
+</html>
